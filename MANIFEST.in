@@ -1,0 +1,3 @@
+recursive-include maparticipate/static *
+recursive-include maparticipate/templates *
+recursive-include maparticipate/translations *
