@@ -1,0 +1,762 @@
+# German translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-02-03 15:42+0100\n"
+"PO-Revision-Date: 2013-01-10 12:33+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: app.py:80 templates/_m/userbase/login.html:19
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: app.py:81
+msgid "Your E-Mail address will never be publically visible"
+msgstr "Ihre E-Mail-Adresse wird nie öffentlich angezeigt."
+
+#: app.py:82 templates/_m/userbase/login.html:20
+msgid "Password"
+msgstr "Passwort"
+
+#: app.py:82
+msgid "Passwords must match"
+msgstr "Das Passwort muß übereinstimmen."
+
+#: app.py:83
+msgid ""
+"For your own security, please choose a long and secure password you use "
+"nowhere else."
+msgstr ""
+"Bitte wählen Sie für Ihre eigene Sicherheit ein langes und sicheres "
+"Passwort, dass sie nirgends sonst verwenden."
+
+#: app.py:84
+msgid "Password confirmation"
+msgstr "Passwort-Wiederholung"
+
+#: app.py:85
+msgid "Full name"
+msgstr "Voller Name"
+
+#: app.py:86
+msgid "Your full name is visible to the public under your proposals and comments."
+msgstr ""
+"Ihr Name wird öffentlich unter Ihren Vorschlägen und Kommentaren "
+"angezeigt."
+
+#: app.py:151
+msgid "Your Registration is now finished"
+msgstr "Ihre Registrierung ist jetzt fertig."
+
+#: app.py:152
+msgid "Welcome to the collaborative route planning tool"
+msgstr "Willkommen zum kollaborativen Planungstool"
+
+#: app.py:153
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+#: app.py:154
+msgid "Your Code to reset your password"
+msgstr "Ihr Code, um Ihr Passwort zurückzusetzen"
+
+#: app.py:157
+msgid "User unknown"
+msgstr "Benutzer unbekannt"
+
+#: app.py:158
+msgid "This email address cannot not be found in our user database"
+msgstr "Wir konnten diese E-Mail-Adresse leider nicht in unserer Datenbank finden."
+
+#: app.py:159
+msgid "Your password is not correct"
+msgstr "Das Passwort ist nicht korrekt"
+
+#: app.py:160
+msgid "Your user has not yet been activated."
+msgstr "Dieses Benutzerkonto wurde noch nicht aktiviert"
+
+#: app.py:161
+msgid "Login failed"
+msgstr "Login fehlgeschlagen"
+
+#: app.py:162
+#, python-format
+msgid "Herzlich Willkommen, %(fullname)s"
+msgstr ""
+
+#: app.py:163
+msgid "You are now logged in"
+msgstr "Sie sind jetzt eingeloggt"
+
+#: app.py:164
+msgid ""
+"We sent you further instructions via e-mail on how to finish your "
+"registration. Please also check your spam folder."
+msgstr ""
+"Wir haben Ihnen per E-Mail weitere Informationen geschickt, um Ihre "
+"Registrierung abzuschliessen. Bitte überprüfen Sie auch Ihren Spam-Ordner"
+
+#: app.py:165
+msgid "Your registration was successful."
+msgstr "Ihre Registrierung war erfolgreich"
+
+#: app.py:166
+msgid "Your account is now activated."
+msgstr "Ihr Benutzerkonto ist jetzt aktiviert"
+
+#: app.py:167
+#, python-format
+msgid ""
+"The activation code is not valid. Please try again or <a "
+"href=\"%(url)s\">click here</a> in order to receive a new code."
+msgstr ""
+"Der Aktivierungs-Code ist nicht gültig. Bitte versuchen Sie es noch "
+"einmal oder <a href=\"%(url)s\"klicken Sie hier</a>, um einen neuen Code "
+"zu erhalten."
+
+#: app.py:168
+msgid ""
+"We sent you another activation code. Please check out e-mail account "
+"including your spam folder."
+msgstr ""
+"Wir haben Ihnen einen weiteren Aktivierungs-Code zugesendet. Bitte "
+"überprüfen Sie Ihre E-Mail-Konto inklusive dem Spam-Ordner."
+
+#: app.py:169
+msgid "Your account is already active, please login"
+msgstr "Ihr Benutzerkonto ist schon aktiv, bitte loggen Sie sich ein."
+
+#: app.py:170
+msgid ""
+"A link with instructions on how to reset your password has been sent to "
+"you via e-mail. Please check out e-mail account including your spam "
+"folder."
+msgstr ""
+"Ein Link mit einer Anleitung zum Zurücksetzen Ihres Passwortes wurde Ihen"
+" per E-Mail zugestellt. Bitte überprüfen Sie Ihre E-Mail-Konto inklusive "
+"dem Spam-Ordner."
+
+#: app.py:171
+msgid "Your password has been changed."
+msgstr "Das Passwort wurde geändert"
+
+#: app.py:174
+msgid "The user has been updated."
+msgstr "Die Benutzerdaten wurden aktualisiert"
+
+#: app.py:175
+msgid "The user has been added."
+msgstr "Der Benutzer wurde hinzugefügt"
+
+#: app.py:176
+msgid "The user has been deleted."
+msgstr "Der Benutzer wurde gelöscht"
+
+#: app.py:177
+msgid "The user has been activated."
+msgstr "Der Benutzer wurde aktiviert"
+
+#: app.py:178
+msgid "The user has been deactivated."
+msgstr "Der Benutzer wurde deaktiviert"
+
+#: app.py:182
+msgid "can manage users"
+msgstr "kann Benutzer verwalten"
+
+#: app.py:183
+msgid "main administrator"
+msgstr "Hauptadministrator"
+
+#: handlers/proposal.py:26
+msgid "Route proposal by {name}"
+msgstr "Streckenvorschlag von {name}"
+
+#: handlers/proposal.py:170
+msgid "Thank you for your proposal"
+msgstr "Danke für Ihren Vorschlag"
+
+#: handlers/proposal.py:177
+msgid "New proposal"
+msgstr "Neuer Vorschlag"
+
+#: handlers/proposal.py:195
+msgid "Comment deleted successfully"
+msgstr "Der Kommentar wurde erfolgreich gelöscht"
+
+#: handlers/proposal.py:232 handlers/proposal.py:239
+msgid "New comment"
+msgstr "Neuer Kommentar"
+
+#: handlers/proposal.py:241
+msgid "Comment posted successfully"
+msgstr "Der Kommentar wurde veröffentlicht"
+
+#: handlers/proposal.py:243
+msgid "Please enter a comment"
+msgstr "Bitte tragen Sie einen Kommentartext ein."
+
+#: templates/index.html:13
+msgid "Collaborative Route Planner"
+msgstr ""
+
+#: templates/index.html:28
+msgid "View proposals"
+msgstr "Vorschläge ansehen"
+
+#: templates/index.html:35
+msgid "If you just want to leave a general comment on the map, click here"
+msgstr "Wenn Sie nur einen allgemeinen Kommentar auf der Karte hinterlassen wollen, klicken Sie bitte hier."
+
+#: templates/index.html:38
+msgid "Add comment on map"
+msgstr "Kommentar auf Karte hinzufügen"
+
+#: templates/index.html:41
+msgid ""
+"In order to comment on proposals or the general map you need a user "
+"account"
+msgstr ""
+"Sie brauchen ein Benutzerkonto, Um einen Vorschlag oder auf der Karte zu "
+"kommentieren."
+
+#: templates/index.html:48
+msgid "Login to comment"
+msgstr "Einloggen, um zu kommentieren"
+
+#: templates/index.html:49 templates/macros.html:172
+#: templates/segment_view.html:55
+msgid "Login / Register"
+msgstr "Einloggen / Registrieren"
+
+#: templates/index.html:59
+msgid "Newest proposals"
+msgstr "Neueste Vorschläge"
+
+#: templates/index.html:65
+msgid "proposal by"
+msgstr "Vorschlag von"
+
+#: templates/index.html:66 templates/index.html:83
+msgid "sub track"
+msgstr "Teilstrecke"
+
+#: templates/index.html:68 templates/index.html:85
+#: templates/proposal_view.html:18 templates/proposal_view.html:116
+msgid "on"
+msgstr "am"
+
+#: templates/index.html:73
+#, fuzzy
+msgid "View all proposals"
+msgstr "Vorschläge ansehen"
+
+#: templates/index.html:76
+msgid "Newest comments"
+msgstr "Neueste Kommentare"
+
+#: templates/index.html:82
+msgid "new comment for the proposal by"
+msgstr "Neuer Kommentar für den Vorschlag von "
+
+#: templates/index.html:96
+msgid "Imprint"
+msgstr "Impressum"
+
+#: templates/macros.html:29
+msgid "This field is required"
+msgstr "Dieses Feld muss angegeben werden"
+
+#: templates/macros.html:122
+msgid "Really Delete?"
+msgstr "Wirklich löschen?"
+
+#: templates/macros.html:124
+msgid "Yes"
+msgstr "Ja"
+
+#: templates/macros.html:127
+msgid "No"
+msgstr "Nein"
+
+#: templates/macros.html:132 templates/proposal_view.html:124
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/macros.html:144
+msgid "Center map back to start and end point"
+msgstr "Karte auf Start- und Enpunkt zentrieren."
+
+#: templates/macros.html:146
+msgid "Center map"
+msgstr "Karte zentrieren"
+
+#: templates/macros.html:155 templates/macros.html:157
+#: templates/macros.html:186
+msgid "Add comment"
+msgstr "Kommentar hinzufügen"
+
+#: templates/macros.html:163
+msgid "You can only save once you changed something."
+msgstr "Sie müssen etwas ändern, bevor Sie speichern können."
+
+#: templates/macros.html:164 templates/proposal_edit.html:82
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/macros.html:171
+msgid "Please login to comment or create proposals"
+msgstr ""
+"Bitte loggen Sie sich ein, um zu kommentieren oder Vorschläge "
+"einzureichen."
+
+#: templates/macros.html:188
+msgid "Comment"
+msgstr "Kommentar"
+
+#: templates/macros.html:194
+msgid "Add Bridge"
+msgstr "Brücke hinzufügen"
+
+#: templates/macros.html:196
+msgid "Bridge"
+msgstr "Brücke"
+
+#: templates/macros.html:202
+msgid "Add Tunnel"
+msgstr "Unterführung hinzufügen"
+
+#: templates/macros.html:204
+msgid "Tunnel"
+msgstr "Unterführung"
+
+#: templates/macros.html:226
+msgid "Key figures"
+msgstr "Kennzahlen"
+
+#: templates/macros.html:229
+msgid "linear distance"
+msgstr "Luftlinie"
+
+#: templates/macros.html:237
+msgid "current distance"
+msgstr "Aktuelle Distanz"
+
+#: templates/macros.html:245
+msgid "Detour factor"
+msgstr "Umwegfaktor"
+
+#: templates/macros.html:261
+msgid "Elevation profile"
+msgstr "Höhenprofil"
+
+#: templates/macros.html:264
+msgid ""
+"If you move your mouse pointer on the evelation profile the corresponding"
+" part of the route will be highlighted."
+msgstr ""
+"Wenn Sie den Mauszeiger im Höhenprofil bewegen, wird die entsprechende "
+"Teilroute hervorgehoben."
+
+#: templates/macros.html:269
+msgid "Slope"
+msgstr "Steigung"
+
+#: templates/macros.html:277
+msgid ""
+"Beware: a precise computation is not possible, the elevation profile only"
+" serves as a rough estimate."
+msgstr ""
+"Achtung: Eine genaue Berechnung ist hier leider nicht möglich, das "
+"Höhenprofil dient nur der groben Orientierung."
+
+#: templates/macros.html:293
+msgid "Proposal by"
+msgstr "Vorschlag von"
+
+#: templates/master.html:50 templates/proposal_view.html:29
+#: templates/proposal_view.html:124
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+#: templates/master.html:51
+msgid "Drag here to change the route"
+msgstr "Hier ziehen, um die Route zu ändern"
+
+#: templates/master.html:52
+msgid "Edit Route"
+msgstr "Route bearbeiten"
+
+#: templates/master.html:73
+msgid "route proposals"
+msgstr "Routenvorschläge"
+
+#: templates/master.html:74
+msgid "general comments"
+msgstr "Generelle Kommentare"
+
+#: templates/master.html:76
+msgid "Help"
+msgstr "Hilfe"
+
+#: templates/master.html:92
+msgid "Login"
+msgstr "Login"
+
+#: templates/master.html:93 templates/_m/userbase/login.html:37
+#: templates/_m/userbase/registration.html:23
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/master.html:98
+msgid "My proposals"
+msgstr "Meine Vorschläge"
+
+#: templates/master.html:99
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+#: templates/master.html:100
+msgid "Logout"
+msgstr "Ausloggen"
+
+#: templates/proposal_edit.html:10
+msgid "This is how you create your proposal"
+msgstr "So erstellen Sie einen Vorschlag"
+
+#: templates/proposal_edit.html:13
+msgid ""
+"You start with a straight line between the start and end point of the sub"
+" section"
+msgstr ""
+"Sie starten mit einer geraden Linie zwischen dem Start- und Endpunkt "
+"einer Teilstrecke"
+
+#: templates/proposal_edit.html:15
+msgid ""
+"You can move the start and end point. But don't move it too far so that "
+"the connection to the next sub section still works."
+msgstr ""
+"Sie können den Start- und Endpunkt verschieben. Verschieben Sie ihn aber "
+"nicht zu weit, damit ein sinnvoller Anschluß an die anderen Teilstrecken "
+"möglich ist."
+
+#: templates/proposal_edit.html:18
+msgid "Edit the route"
+msgstr "Route bearbeiten"
+
+#: templates/proposal_edit.html:20
+msgid ""
+"In order to refine your route, move the gray point in the middle to a new"
+" position. After that two new points will appear on the new sub routes. "
+"That way you can refine the route point by point."
+msgstr ""
+"Klicken Sie auf den grauen Punkt in der Mitte der Route, um sie zu "
+"verfeinern. Danach erscheinen zwei neue Punkte auf den neuen "
+"Teilstrecken. So können Sie die Route nach und nach verfeinern und "
+"behalten den Start- und Endpunkt immer im Blick"
+
+#: templates/proposal_edit.html:23
+msgid ""
+"You can save your route and continue working on it later. As long as you "
+"didn't submit it, it won't be visible to anyone."
+msgstr ""
+"Sie können den Vorschlag speichern und später daran weiterarbeiten. "
+"Solange Sie ih nicht einreichen, ist er nur für Sie sichtbar."
+
+#: templates/proposal_edit.html:28
+msgid "Understood"
+msgstr "Verstanden"
+
+#: templates/proposal_edit.html:38
+msgid "Back to overview"
+msgstr "Zurück zur Liste"
+
+#: templates/proposal_edit.html:40
+msgid "Create new proposal"
+msgstr "Neuen Vorschlag anlegen"
+
+#: templates/proposal_edit.html:42 templates/proposal_view.html:48
+msgid "Edit proposal"
+msgstr "Vorschlag bearbeiten"
+
+#: templates/proposal_edit.html:48
+msgid "Original proposal by"
+msgstr "Originalvorschlag von"
+
+#: templates/proposal_edit.html:63 templates/proposal_edit.html:64
+msgid ""
+"If you submit a proposal, it will be public. You also cannot edit it "
+"further."
+msgstr ""
+"Wenn Sie Ihren Vorschlag einreichen, wird er öffentlich sichtbar und Sie "
+"können ihn nicht mehr bearbeiten."
+
+#: templates/proposal_edit.html:66
+msgid "Submit proposal"
+msgstr "Vorschlag einreichen"
+
+#: templates/proposal_edit.html:81
+msgid "You can only save it once you changed something"
+msgstr "Sie können nur speichern, wenn Sie etwas geändert haben."
+
+#: templates/proposal_edit.html:88
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: templates/proposal_edit.html:93
+msgid "Description"
+msgstr "Beschreibung"
+
+#: templates/proposal_edit.html:94
+msgid "Please describe what your proposal is about"
+msgstr "Bitte beschreiben Sie Ihren Vorschlag hier kurz"
+
+#: templates/proposal_view.html:5 templates/submit_success.html:14
+msgid "back to overview"
+msgstr "Zurück zur Liste"
+
+#: templates/proposal_view.html:6 templates/segment_view.html:6
+msgid "Sub section"
+msgstr "Teilstrecke"
+
+#: templates/proposal_view.html:9
+msgid "Draft"
+msgstr ""
+
+#: templates/proposal_view.html:12
+msgid "published"
+msgstr "veröffentlicht"
+
+#: templates/proposal_view.html:17
+msgid "by"
+msgstr "von"
+
+#: templates/proposal_view.html:30
+msgid "Delete proposal"
+msgstr "Vorschlag löschen"
+
+#: templates/proposal_view.html:41
+msgid ""
+"You can still edit your proposal as long as you haven't submitted it. "
+"After that it's public and cannot be changed anymore."
+msgstr ""
+"Sie können Ihren Vorschlag editieren, solange Sie ihn nicht eingereicht "
+"haben. Danach ist er öffentlich und kann nicht mehr verändert werden."
+
+#: templates/proposal_view.html:57
+msgid ""
+"Once your proposal is finished you can submit it for review. It will then"
+" be publically visible and can be commented on. "
+msgstr ""
+"Sobald Sie ihren Vorschlag fertig bearbeitet haben, können Sie ihn "
+"einreichen. Er ist dann öffentlich sichtbar und kann von anderen "
+"Benutzern kommentiert werden."
+
+#: templates/proposal_view.html:60
+msgid "Please note that once submitted you cannot change your proposal anymore."
+msgstr ""
+"Bitte beachten Sie, dass Sie Ihren Vorschlag nicht mehr bearbeiten "
+"können, sobald er eingereicht wurde."
+
+#: templates/proposal_view.html:72
+msgid ""
+"Once you submitted your proposal it will be publically visible and cannot"
+" be changed anymore."
+msgstr ""
+"Sobald Sie Ihren Vorschlag eingereicht haben, wird er öffentlich sichtbar"
+" und kann nicht mehr bearbeitet werden."
+
+#: templates/proposal_view.html:74
+msgid "Submit proposal for review"
+msgstr "Vorschlag einreichen"
+
+#: templates/proposal_view.html:82
+msgid "new proposal"
+msgstr "Neuer Vorschlag"
+
+#: templates/proposal_view.html:83
+msgid "Use proposal as base for your own proposal"
+msgstr "Vorschlag als Basis für einen eigenen Vorschlag nutzen"
+
+#: templates/proposal_view.html:94
+msgid "Comments"
+msgstr "Kommentare"
+
+#: templates/proposal_view.html:97
+#, python-format
+msgid "%(num)d comment"
+msgid_plural "%(num)d comments"
+msgstr[0] "%(num)d Kommentar"
+msgstr[1] "%(num)d Kommentare"
+
+#: templates/proposal_view.html:108
+msgid "Author"
+msgstr "Autor"
+
+#: templates/proposal_view.html:111
+msgid "Moderator"
+msgstr "Moderator"
+
+#: templates/proposal_view.html:141
+msgid "Your comment"
+msgstr "Ihr Kommentar"
+
+#: templates/proposal_view.html:143
+msgid "Submit comment"
+msgstr "Kommentar veröffentlichen"
+
+#: templates/proposal_view.html:149
+msgid "Please login to comment"
+msgstr "Einloggen, um zu kommentieren"
+
+#: templates/segment_overview.html:9
+msgid "Select subsection"
+msgstr "Teilstrecke auswählen"
+
+#: templates/segment_overview.html:11
+msgid "In order to manage the full route better you can edit them in parts"
+msgstr ""
+"Um die komplette Route einfacher verwalten zu können, können Sie sie in "
+"Teilstrecken bearbeiten"
+
+#: templates/segment_overview.html:12
+msgid "You can view and comment on proposed routes"
+msgstr "Sie können vorgeschlagene Routen einsehen und kommentieren."
+
+#: templates/segment_overview.html:27
+msgid "Please select a subsection"
+msgstr "Bitte wählen Sie eine Teilstrecke"
+
+#: templates/segment_overview.html:39
+msgid "Number of proposals"
+msgstr "Anzahl der Vorschläge"
+
+#: templates/segment_view.html:5
+msgid "All sub sections"
+msgstr "Alle Teilstrecken"
+
+#: templates/segment_view.html:12
+msgid "No proposals have been created yet. Your's can be the first!"
+msgstr ""
+"Bislang wurden noch keine Vorschläge eingereicht. Ihrer könnte der erste "
+"sein!"
+
+#: templates/segment_view.html:16
+msgid "My Proposals"
+msgstr "Meine Vorschläge"
+
+#: templates/segment_view.html:23
+msgid "Submitted Proposals"
+msgstr "Eingereichte Vorschläge"
+
+#: templates/segment_view.html:32
+msgid "No proposals have yet been submitted."
+msgstr "Bislang wurden keine Vorschläge eingereicht"
+
+#: templates/segment_view.html:41
+msgid "add own proposal"
+msgstr "Eigenen Vorschlag hinzufügen"
+
+#: templates/segment_view.html:42
+msgid "Create Proposal"
+msgstr "Vorschlag anlegen"
+
+#: templates/segment_view.html:45
+msgid "You reached the number of proposals you can create per sub section"
+msgstr ""
+"Die haben die maximale Anzahl an Vorschlägen für diese Teilstrecke "
+"erreicht."
+
+#: templates/segment_view.html:49
+msgid "Please login to create your proposal"
+msgstr "Bitte loggen Sie sich ein, um einen Vorschlag zu erstellen."
+
+#: templates/submit_success.html:8
+msgid "Thank you for your participation!"
+msgstr "Vielen Dank für Ihre Mitarbeit!"
+
+#: templates/_m/userbase/login.html:14
+#, fuzzy
+msgid "Please login!"
+msgstr "Einloggen, um zu kommentieren"
+
+#: templates/_m/userbase/login.html:16
+msgid "You have to login in order to create a proposal or comment on one"
+msgstr ""
+"Sie müssen sich einloggen, um einen Vorschlag zu erstellen oder "
+"Vorschläge zu kommentieren"
+
+#: templates/_m/userbase/login.html:30
+msgid "remember me"
+msgstr "Eingeloggt bleiben"
+
+#: templates/_m/userbase/login.html:34
+msgid "forgot password?"
+msgstr "Passwort vergessen?"
+
+#: templates/_m/userbase/pw_new.html:9
+msgid "Set new password"
+msgstr "Neues Passwort setzen"
+
+#: templates/_m/userbase/pw_new.html:11
+msgid "Use the form below to set a new password for your account."
+msgstr "Benutzen Sie das Formular unten, um ein neues Passwort zu erstellen"
+
+#: templates/_m/userbase/pw_new.html:19
+msgid "Save new password"
+msgstr "Neues Passwort speichern"
+
+#: templates/_m/userbase/registration.html:7
+msgid "Please register"
+msgstr "Registrieren"
+
+#: templates/_m/userbase/registration.html:9
+msgid "This is how you do it"
+msgstr "So geht das:"
+
+#: templates/_m/userbase/registration.html:11
+msgid "Fill out this form"
+msgstr "Füllen Sie dieses Formular aus."
+
+#: templates/_m/userbase/registration.html:12
+msgid "We will send you an activation code via email"
+msgstr "Wir senden Ihnen eine Aktivierungs-E-Mail zu."
+
+#: templates/_m/userbase/registration.html:13
+msgid ""
+"After clicking on that code your account will be activated and you can "
+"start proposing"
+msgstr ""
+"Nachdem Sie auf den Aktivierungslink in der E-Mail geklickt haben, ist "
+"Ihr Konto aktiv und Sie können eigene Vorschläge anlegen."
+
+#: templates/_m/userbase/registration.html:35
+msgid "You didn't receive your activation code?"
+msgstr "Sie haben keinen Aktivierungs-Code erhalten?"
+
+#: templates/_m/userbase/registration.html:36
+msgid "Send new activation code"
+msgstr "Neuen Aktivierungs-Code zusenden"
+
+#: templates/_m/userbase/send_pw_code.html:9
+msgid "Set a new password"
+msgstr "Neues Passwort speichern"
+
+#: templates/_m/userbase/send_pw_code.html:12
+msgid "Request new password"
+msgstr "Neues Passwort anfordern"
+

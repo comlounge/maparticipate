@@ -1,0 +1,153 @@
+{% import "macros.html" as macros with context %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{title|default('Collaborative Route Planner')}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{description}}">
+        <meta name="author" content="">
+        <meta property="og:title" content="{{title|default('Collaborative Route Planner')}}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{url}}" />
+        <meta property="og:image" content="{{url_for('static', filename="img/rswfb.png", _full=True)}}" />
+        <meta property="og:description" content="{{description}}">
+
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le styles -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+
+        <link href="{{url_for("static", filename="css/bootstrap.css")}}?v=33" rel="stylesheet">
+
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+
+        {% block css %}
+        {# for additional css #}
+        {% endblock %}
+
+        <link rel="shortcut icon" href="{{url_for("static", filename="img/favicon.ico")}}" type="image/x-icon">
+        <link rel="icon" href="{{url_for("static", filename="img/favicon.ico")}}" type="image/x-icon">
+
+
+        {% block head %}
+        {% endblock %}
+
+    </head>
+
+    <body data-i18n-areyousure="{{_("Are you sure?")}}" id="{{body_id|d('')}}" 
+        data-i18n-draghere="{{_('Drag here to change the route')}}"
+        data-i18n-editroute="{{_('Edit Route')}}"
+        data-lang="{{LANGUAGE}}" class="{{body_class}}">
+        {% block modal %}
+
+        {% endblock %}
+        {% block navbar %}
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="{{'container' if not container=="full" else "container-fluid"}}">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{url_for("index")}}">
+                        <!-- put your logo here -->
+                        {{title}}</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{url_for("segment_overview")}}">{{_('route proposals')}}</a></li>
+                        <li><a href="{{url_for("comment_overview")}}">{{_('general comments')}}</a></li>
+                        <li class="dropdown">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-info"></i> {{_('Help')}}<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="" target="hilfe">Help 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="" target="hilfe">Help 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="divider-vertical"></li>
+                        {% if not logged_in %}
+                            <li class="divider-vertical"></li>
+                            <li><a href="{{url_for("userbase.login")}}">{{_('Login')}}</a></li>
+                            <li><a href="{{url_for("userbase.register")}}">{{_('Register')}}</a></li>
+                        {% else %}
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown">{{user.fullname}}<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{url_for('own_proposals')}}">{{_('My proposals')}}</a></li>
+                                    <li><a href="{{url_for('userbase.pw_set')}}">{{_('Change Password')}}</a></li>
+                                    <li><a href="{{url_for('userbase.logout')}}">{{_('Logout')}}</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div><!-- container fluid -->
+        </nav><!-- navbar -->
+        {% endblock %}
+
+        {% block container %}
+        <div class="container" id="content">
+            {% block flashes %}
+                {% for m in get_flashes(with_categories=True) %}
+                    <div class="alert alert-info alert-{{m[0]}} alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>{{m[1]}}</strong><br>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+
+            {% block content %}
+                {% block main_content %}
+                    content here
+                {% endblock %}
+            {% endblock %}
+        </div> <!-- /container -->
+
+        {% block footer %}
+        {% endblock %}
+
+        {% endblock %}
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+        <script src="{{url_for('static', filename='js/bower.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/leaflet.draw.local.js')}}"></script>
+        <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+        <script src="{{url_for('static', filename='js/js.cookie.js')}}"></script>
+        <script src="{{url_for('static', filename='js/bt.js')}}"></script>
+        <script src="{{url_for('static', filename='js/parsley/de.js')}}"></script>
+
+        {% block js %}
+        {% endblock %}
+        {% block js2 %}
+        {% endblock %}
+
+
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </body>
+</html>

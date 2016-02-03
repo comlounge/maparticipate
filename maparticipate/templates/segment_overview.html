@@ -1,0 +1,57 @@
+{% extends "master.html" %}
+<style>
+  #overview-map { width: 400px; height: 300px; }
+</style>
+
+{% block content %}
+        <div class="container">
+            <div class="page-header">
+                <h1>{{_('Select subsection')}}</h1>
+                <ul class="help-strecke">
+                    <li>{{_('In order to manage the full route better you can edit them in parts')}}
+                    <li>{{_('You can view and comment on proposed routes')}}
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <div id="map-container">
+                        <div class="map" id="overview-map"
+                            data-mapid="{{mapbox_map_id}}"
+                            data-accesstoken="{{mapbox_access_token}}"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                <h3>{{_('Please select a subsection')}}:</h3>
+                    <ul id="overview-list" class="list-unstyled">
+                        {% for seg in segments %}
+                            <li class="segment"
+                                style="cursor: pointer;"
+                                data-segment='{{ seg|tojson }}'
+                                data-url="{{url_for('segment_view', seg_id=seg.id)}}">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>
+                                            {{ seg.title }}
+                                        </h4>
+                                        <p class="text-muted">{{_('Number of proposals')}}: {{ proposals[seg.id] }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
+{% endblock %}

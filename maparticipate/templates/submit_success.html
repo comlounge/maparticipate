@@ -1,0 +1,16 @@
+{% set container="full" %}
+{% extends "master.html" %}
+
+
+
+{% block main_content %}
+<div class="jumbotron" style="margin-top: 30px;">
+    <h1>{{_('Thank you for your participation!')}}</h1>
+
+    <div class="hero-description">
+    	Explain here what will happen to that proposal, like will somebody official review it and give feedback? How will the author know what happened to it?
+    </div>
+
+    <a href="{{url_for("segment_view", seg_id = seg_id)}}" class="btn btn-lg btn-success">{{_('back to overview')}}</a>
+</div>
+{% endblock %}

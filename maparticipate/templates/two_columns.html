@@ -1,0 +1,46 @@
+{% extends "master.html" %}-
+
+{% block css %}
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+{% endblock %}
+
+{% block container %}
+    <div class="container-fluid" id="content">
+
+
+
+    <div class="row main-row">
+        <div class="col-md-3 sidebar" id="sidebar2">
+            {% block flashes %}
+                {% for m in get_flashes(with_categories=True) %}
+                    <div class="alert alert-{{m[0]}} alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>{{m[1]}}</strong><br>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+
+
+            {% block title %}
+            {% endblock %}
+            <div id="sidebar-content">
+                {% block left_column %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="col-md-9 col-md-offset-3 ">
+            {% block right_column %}
+            {% endblock %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+Hello {{author.fullname}},
+
+{{user.fullname}} has commented on your proposal: 
+
+{{url}}
+
+{{comment|striptags}}
+
+
+best regards
+
+your team
+
+
+--
+footer
+

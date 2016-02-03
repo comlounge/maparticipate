@@ -1,0 +1,313 @@
+
+
+{% macro f(field, classes="") -%}
+    {{ field(class="form-control "+classes, **kwargs) }}
+    {% if field.description %}
+        <p class="help-block">{{ _(field.description) }}</p>
+    {% endif %}
+{%- endmacro %}
+
+{% macro my_field(field, prepend=None, append=None, input_class="", no_size=False, required=False, size="") -%}
+    {% if no_size %}
+        {{ field(class="form-control"+(' required ' if required else ' ')+input_class, required=required, **kwargs)}}
+        {% if field.description %}
+            <p class="help-block">{{ _(field.description) }}</p>
+        {% endif %}
+    {% else %}
+        <div class="{{size}}">
+            {{ field(class="form-control"+(' required ' if required else ' ')+input_class, required=required, **kwargs) }}
+            {% if field.description %}
+                <p class="help-block">{{ _(field.description) }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+{%- endmacro %}
+
+{%- macro form_field_label(field, label_class="") -%}
+    <label class="control-label {{label_class}}" for="{{ field.id }}">{{ _(field.label.text) }}
+    {%- if field.flags.required -%}
+        <abbr title="{{_('This field is required')}}">*</abbr>
+    {%- endif %}</label>
+{% endmacro %}
+
+{%- macro form_field_errors(field) -%}
+    {% if field.errors %}
+        {%- for error in field.errors -%}
+        <span class="label label-danger">{{ error }}</span>
+        {%- endfor -%}
+    {% endif %}
+{%- endmacro -%}
+
+{%- macro form_field_boolean(field) -%}
+<div class="checkbox" id="{{field.id}}-div">
+    <label>
+        {{field(**kwargs)}}
+        {{ _(field.label.text) }}
+        <p class="help-block">{{ _(field.description) }}</p>
+    </label>
+</div>
+{%- endmacro -%}
+
+{%- macro form_field_radio(field) -%}
+{% for subfield in field %}
+    <div class="radio" id="{{field.id}}-div">
+        <label>
+            {{ subfield() }}
+            {{ _(subfield.label.text) }}
+        </label>
+    </div>
+{% endfor %}
+{%- endmacro -%}
+
+{%- macro form_field_multicheckbox(field, input_class) -%}
+    {% for subfield in field %}
+        <div class="checkbox">
+            <label>
+                {{ subfield(class=input_class) }}
+                {{ subfield.label.text }}
+            </label>
+        </div>
+    {% endfor %}
+{%- endmacro -%}
+
+{%- macro action_buttons(submit_title, cancel_title="Zurück setzten", submit_class="primary") -%}
+<div class="actions">
+    <input type="submit" class="btn {{submit_class}}" value="{{submit_title}}">
+    &nbsp;
+    <button type="reset" class="btn">{{cancel_title}}</button>
+</div>
+{%- endmacro -%}
+
+{%- macro form_field(field, label_class="", input_class="", size="") -%}
+    <div class="form-group {{'error' if field.errors}}" id="field-{{field.id}}">
+    {% if field.type == 'HiddenField' %}
+        {{ field() }}
+    {% else %}
+        {% if field.type == 'BooleanField' %}
+            {{ form_field_boolean(field, **kwargs) }}
+        {% else%}
+            {{ form_field_label(field, label_class) }}
+            {% if field.type == 'MultiCheckboxField' %}
+                {{ form_field_multicheckbox(field, input_class) }}
+            {% elif field.type == 'RadioField' %}
+                {{ form_field_radio(field) }}
+            {% else %}
+                {{ my_field(field, input_class=input_class, size=size, **kwargs) }}
+            {% endif %}
+            {{ form_field_errors(field) }}
+        {% endif %}
+    {% endif %}
+    </div>
+{%- endmacro -%}
+
+{%- macro form_fields(fields, class=None, legend=None) -%}
+    <fieldset {% if class %}class="{{class}}"{% endif %}>
+        {% if legend %}
+            <legend>{{legend}}</legend>
+        {% endif %}
+    {% for field in fields %}
+        {% if field.type == 'HiddenField' %}
+            {{ field() }}
+                {% else %}
+            {{ form_field(field) }}
+        {% endif %}
+    {% endfor %}
+  </fieldset>
+{%- endmacro -%}
+
+{% macro delbutton(entry, classes="", show_label = False) -%}
+    <a href="#" class="confirmdelete btn btn-danger {{classes}}"
+                data-entry="{{entry._id}}"
+                data-url="{{url}}"
+                data-title="{{_('Really Delete?')}}"
+                data-toggle="confirmation"
+                data-btn-ok-label="{{_('Yes')}}"
+                data-btn-ok-icon="fa fa-ok"
+                data-btn-ok-class="btn btn-success btn-xs"
+                data-btn-cancel-label="{{_('No')}}"
+                data-btn-cancel-icon="fa fa-ban"
+                data-btn-cancel-class="btn btn-danger btn-xs">
+        <i class="fa fa-trash"></i>
+            {% if show_label %}
+                {{_('Delete')}}
+            {% endif %}
+    </a>
+
+{% endmacro %}
+
+{% macro mapoverlay(with_comments=False, comment_only=False) -%}
+    <div class="row" id="mapmenu">
+        <div class="btn-group" role="group" aria-label="...">
+            <button
+                id="reset_map"
+                class="btn btn-default"
+                title="{{_('Center map back to start and end point')}}">
+                <i class="fa fa-crosshairs"></i>
+                {{_('Center map')}}
+            </button>
+
+            {% if with_comments %}
+                {% if comment_only %}
+                    {% if logged_in %}
+                        {% if not is_admin %}
+                            <button type="button" class="btn btn-default dropdown-toggle add_mapcomment"
+                                    id="add_mapcomment"
+                                    title="{{_('Add comment')}}"
+                                    data-icon="comment">
+                                    <i class="fa fa-comment"></i> {{_('Add comment')}}
+                            </button>
+                            <button id="save-comments-button"
+                                class="btn btn-primary"
+                                data-toggle="tooltip"
+                                style="display:none"
+                                title="{{_('You can only save once you changed something.')}}">
+                            {{_('Save')}}
+                            </button>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{url_for('userbase.login')}}"
+                            class="btn btn-primary"
+                            id="new_route"
+                            title="{{_('Please login to comment or create proposals')}}">
+                                {{_('Login / Register')}}
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle"
+                                id="add_mapcomment"
+                                data-toggle="dropdown" aria-expanded="false">
+                                Hinzufügen <strong class="caret"></strong>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#"
+                                   class="add_mapcomment"
+                                   title="{{_('Add comment')}}"
+                                   data-icon="comment">
+                                    &nbsp;<i class="fa fa-comment"></i>&nbsp;&nbsp;{{_('Comment')}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="add_mapcomment"
+                                   title="{{_('Add Bridge')}}"
+                                   data-icon="bruecke">
+                                    <img src="{{url_for("static", filename="img/bruecke.png")}}" width="22"> {{_('Bridge')}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   class="add_mapcomment"
+                                   title="{{_('Add Tunnel')}}"
+                                   data-icon="tunnel">
+                                    <img src="{{url_for("static", filename="img/tunnel.png")}}" width="22"> {{_('Tunnel')}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row overlay">
+        <div class="col-xs-12 col-md-12">
+        <!-- sidebar with maybe layers or something like that -->
+
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro route_details(show_elevation = True) -%}
+{{show_elevation}}
+    <div class="clearfix"></div>
+    <hr>
+     <h4>{{_('Key figures')}}</h4>
+    <div class="row">
+        <div class="col-md-6">
+            {{_('linear distance')}}:
+        </div>
+        <div class="col-md-6">
+            <div id="linear-distance"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{_('current distance')}}:
+        </div>
+        <div class="col-md-6">
+            <div id="current-distance"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{_('Detour factor')}}:
+        </div>
+        <div class="col-md-6">
+            <div id="distance-factor"></div>
+        </div>
+    </div>
+
+    {% if show_elevation %}
+    <hr>
+
+    <button
+        class="btn btn-success btn-sm pull-right"
+        id="update_elevation_chart"
+        style="display:none">
+        <i class="fa fa-refresh fa-lg"></i>
+    </button>
+    <h4>{{_('Elevation profile')}}</h4>
+     <p>
+        <small>
+            {{_('If you move your mouse pointer on the evelation profile the corresponding part of the route will be highlighted.')}}
+        </small>
+        <span id="grade_display"
+              class="small"
+              style="display:none">
+            {{_('Slope')}}: <span>10 %</span>
+        </span>
+        </p>
+
+    <div class="elevation-parent">
+        <canvas id="elevation" width="278" height="150"></canvas>
+    </div>
+    <p>
+        <small>{{_('Beware: a precise computation is not possible, the elevation profile only serves as a rough estimate.')}}</small>
+    </p>
+    {% endif %}
+
+{% endmacro %}
+
+
+{% macro proposal_list_item(p) -%}
+    <li class="proposal-item"
+        style="cursor: pointer;"
+        data-route='{{p.route}}'
+        data-url="{{url_for('proposal_view', seg_id=p.segment, p_id=p._id)}}"
+        data-author="{{p.author}}">
+
+        <button class="pull-right btn btn-sm btn-info"><i class="fa fa-arrow-right"></i> Details</button>
+
+        {{_('Proposal by')}} {{p.author_name}}
+        <div class="byline">
+            {{ p.updated.strftime('%d.%m.%Y, %H:%M') }} Uhr
+        </div>
+        {% if p.workflow == 'draft' %}
+            <span class="label label-info">Entwurf</span>
+        {% endif %}
+        {% if p.workflow == 'published' %}
+            <span class="label label-success">Veröffentlicht</span>
+        {% endif %}
+
+        {% if p.workflow == 'published' %}
+            <span class="text-muted hide">
+            (
+                {{p.comments|length}}
+                <i class="fa fa-comments"></i>
+            )
+            </span>
+        {% endif %}
+    </li>
+{% endmacro %}

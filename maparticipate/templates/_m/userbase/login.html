@@ -1,0 +1,47 @@
+{% extends M.userbase.config.master_template %}
+{% import "macros.html" as formmacros with context %}                                                                                                           
+
+{% block container %}
+    <div class="container">
+        {% for m in get_flashes(with_categories=True) %}
+            <div class="alert alert-{{m[0]}}">
+            <strong>{{m[1]}}</strong><br>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="login-container container">
+        <div class="content clearfix">
+            <h1>{{_('Please login!')}}</h1>
+            <div class="description">
+                {{_('You have to login in order to create a proposal or comment on one')}}
+            </div>
+            <form class="horizontal-form validate" method="POST" action="{{url}}">  
+                {{ formmacros.form_field(form.email, placeholder=_("E-Mail")) }}
+                {{ formmacros.form_field(form.password, placeholder=_("Password")) }}
+                <div class="pull-right">
+                    <p>
+                    <input type="submit" class="pull-right btn-signin" value="Einloggen"><br>
+                    </p>
+                </div>
+                {% if M.userbase.config.use_remember %}
+                    <div class="controls" id="{{form.remember.id}}-div">
+                        <label class="checkbox" for="{{ form.remember.id }}" id="field-{{form.remember.id}}">
+                            {{form.remember()}}
+                            {{_('remember me')}}
+                        </label>
+                    </div>
+                {% endif %}
+                <a href="{{url_for("userbase.pw_forgot")}}">{{_('forgot password?')}}</a>
+            </form>
+            <hr>
+            <a class="btn btn-block btn-danger btn-register" href="{{url_for("userbase.register")}}">{{_('Register')}}</a>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+        <script>
+            $(document).ready(function() {
+                $("#username").focus();
+            })
+        </script>
+{% endblock %}

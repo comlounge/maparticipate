@@ -1,0 +1,69 @@
+{% set container="full" %}
+{% extends "two_columns.html" %}
+
+{% block title %}
+    <a href="{{url_for('segment_overview')}}" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{_('All sub sections')}}</a>
+    <h2>{{_('Sub section')}} {{ seg.title }}</h2>
+{% endblock %}
+
+{% block left_column %}
+    {% if not proposals and not own_proposals %}
+        <p class="alert alert-warning">
+            {{_("No proposals have been created yet. Your's can be the first!")}}
+        </p>
+    {% else %}
+        {% if own_proposals %}
+            <h3>{{_('My Proposals')}}</h3>
+            <ul class="proposal-list">
+                {% for p in own_proposals %}
+                    {{ macros.proposal_list_item(p) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h3>{{_('Submitted Proposals')}}</h3>
+        {% if proposals %}
+            <ul class="proposal-list">
+                {% for p in proposals %}
+                    {{ macros.proposal_list_item(p) }}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="alert alert-info">
+                {{_('No proposals have yet been submitted.')}}
+            </div>
+        {% endif %}
+    {% endif %}
+    {% if logged_in %}
+        <a href="{{url_for('proposal_add', seg_id=seg.id)}}"
+            class="btn btn-primary btn-lg"
+            id="new_route"
+            {{'disabled' if not can_propose }}
+            title="{{_('add own proposal')}}">
+                {{_('Create Proposal')}}
+        </a>
+        {% if not can_propose %}
+            <div style="margin-top: 10px;" class="text-warning"><p>{{_('You reached the number of proposals you can create per sub section')}}</p></div>
+        {% endif %}
+    {% else %}
+        <p>
+            <strong>{{_('Please login to create your proposal')}}</strong>
+        </p>
+        <a href="{{url_for('userbase.login')}}"
+            class="btn btn-default btn-sm"
+            id="new_route"
+            title="Einloggen, um eigenen Vorschlag zu erstellen">
+                {{_('Login / Register')}}
+        </a>
+    {% endif %}
+
+{% endblock %}
+
+{% block right_column %}
+    {{ macros.mapoverlay() }}
+    <div class="map" id="segment-map"
+        data-mapid="{{mapbox_map_id}}"
+        data-accesstoken="{{mapbox_access_token}}"
+        data-segment='{{seg|tojson}}'
+        >
+    </div>
+{% endblock %}

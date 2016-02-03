@@ -1,0 +1,30 @@
+{% set container="full" %}
+{% extends "two_columns.html" %}
+
+{% block title %}
+    <h2>Meine Vorschläge</h2>
+{% endblock %}
+
+{% block left_column %}
+    <h3>Veröffentlichte Vorschläge</h3>
+    <ul class="proposal-list">
+        {% for p in published %}
+            {{ macros.proposal_list_item(p) }}
+        {% endfor %}
+    </ul>
+    <h3>Entwürfe</h3>
+    <ul class="proposal-list">
+        {% for p in drafts %}
+            {{ macros.proposal_list_item(p) }}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block right_column %}
+    {{ macros.mapoverlay() }}
+    <div class="map" id="own-overview-map"
+        data-mapid="{{mapbox_map_id}}"
+        data-accesstoken="{{mapbox_access_token}}"
+        >
+    </div>
+{% endblock %}

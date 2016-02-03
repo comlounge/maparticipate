@@ -1,0 +1,18 @@
+Hello {{user.fullname}},
+
+thank you for your participation! Your proposal is now publically visible and can be commented on.
+
+
+You can checkout your proposal under the following URL:
+
+{{url}}
+
+
+
+best regards,
+
+Your team
+
+
+--
+footer

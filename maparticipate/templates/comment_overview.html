@@ -1,0 +1,31 @@
+{% set container="full" %}
+{% extends "master.html" %}
+
+<style>
+  #overview-map { width: 400px; height: 300px; }
+</style>
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="map-container" style="height:100%">
+                {{ macros.mapoverlay(with_comments=True, comment_only=True) }}
+                <div class="map" id="comments-overview-map"
+                    data-mapid="{{mapbox_map_id}}"
+                    data-accesstoken="{{mapbox_access_token}}"
+                    data-mapcomment_url="{{ url_for('mapcomments_all') }}"
+                    data-isadmin="{{is_admin}}"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
+{% endblock %}

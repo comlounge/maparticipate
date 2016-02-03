@@ -1,0 +1,165 @@
+{% set container="full" %}
+{% extends "two_columns.html" %}-
+
+{% block title %}
+    <a href="{{url_for('segment_view', seg_id = seg_id)}}" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{_('back to overview')}}</a>
+    <h2 id="proposal-title">{{_('Sub section')}}: {{ seg.title }}  </h2>
+    <div class="pull-right">
+        {% if p.workflow == 'draft' %}
+            <span class="label label-info">{{_('Draft')}}</span>
+        {% endif %}
+        {% if p.workflow == 'published' %}
+            <span class="label label-success">{{_('published')}}</span>
+        {% endif %}
+    </div>
+
+    <p class="byline">
+        {{_('by')}} <span class="author">{{p.author_name}}</span>
+        {{_('on')}} <span class="date">{{ p.updated.strftime('%d.%m.%Y') }}</span>
+    </p>
+{% endblock %}
+
+{% block left_column %}
+    <div class="route-details">
+        <p>{{p.description}}</p>
+    </div>
+
+    {% if is_admin %}
+        <a href="{{url}}?method=delete"
+            onclick = "return confirm('{{_("Are you sure?")}}')"
+            class="btn btn-danger"><i class="fa fa-trash"></i> {{_('Delete proposal')}}</a>
+    {% endif %}
+
+    {{ macros.route_details(show_elevation = show_elevation) }}
+
+    {% if logged_in %}
+        {% if p.owned_by(user) %}
+
+            {% if p.workflow == 'draft' %}
+                <div class="description">
+                    <p>
+                        {{_("You can still edit your proposal as long as you haven't submitted it. After that it's public and cannot be changed anymore.")}}
+                    </p>
+                </div>
+
+                <a href="{{url_for('proposal_edit', seg_id=seg_id, p_id=p._id)}}"
+                    class="btn btn-primary btn-block"
+                    title="Vorschlag bearbeiten">
+                    <i class="fa fa-pencil"></i> {{_('Edit proposal')}}
+                </a>
+            {% endif %}
+
+            <hr>
+
+            {% if p.transaction_allowed('published') %}
+                <div class="description">
+                    <p>
+                        {{_('Once your proposal is finished you can submit it for review. It will then be publically visible and can be commented on. ')}}
+                    </p>
+                    <p>
+                        {{_('Please note that once submitted you cannot change your proposal anymore.')}}
+                    </p>
+                </div>
+
+                <form name="workflow_form"
+                      id="workflow_form"
+                      action="{{url_for('proposal_workflow', seg_id=seg_id, p_id=p._id)}}"
+                      method="POST"
+                      role="form"
+                      class="">
+                    <input type="hidden" name="wf_state" value="published">
+                    <button type="submit"
+                            onclick="return confirm('{{_("Once you submitted your proposal it will be publically visible and cannot be changed anymore.")}}')"
+                            class="btn btn-block btn-warning">
+                        <i class="fa fa-star"></i> {{_('Submit proposal for review')}}
+                    </button>
+                </form>
+            {% endif %}
+        {% else %}
+            <a href="{{url_for('proposal_add', seg_id=seg_id)}}?p_id={{p._id}}"
+                class="btn btn-primary btn-sm"
+                id="new_route"
+                title="{{_('new proposal')}}">
+                <i class="fa fa-plus"></i> {{_('Use proposal as base for your own proposal')}}
+            </a>
+        {% endif %}
+    {% endif %}
+
+    <div class="clearfix"></div>
+
+    {% if p.workflow == 'published' %}
+        {# comments are only allowed once it's published #}
+
+        {% if comments|length == 0 %}
+            <h3>{{_('Comments')}}</h3>
+        {% else %}
+            <h3>
+            {{ngettext('%(num)d comment', '%(num)d comments', comments|length)|format(num=comments|length)}}
+            </h3>
+        {% endif %}
+
+        <div id="comment-box">
+            <div id="comment-list">
+                <ul class="comment-list">
+                    {% for c in comments %}
+                        <li class="comment">
+                            <div class="pull-right">
+                                {% if c.from_author %}
+                                    <span class="label label-info">{{_('Author')}}</span>
+                                {% endif %}
+                                {% if c.from_moderator or c.from_admin %}
+                                    <span class="label label-warning">{{_('Moderator')}}</span>
+                                {% endif %}
+                            </div>
+                            <div class="comment-byline">
+                                {{ c.author_name }}
+                                 {{_('on')}}
+                                {{ c.updated.strftime('%d.%m.%Y, %H:%M') }}:
+                            </div>
+                            {{ c.comment|striptags }}
+                            {% if is_admin %}
+                            <div>
+                                <a  href="{{url_for('comment_view', seg_id = seg_id, p_id = p._id, comment_id = c._id, method='delete', _append=True)}}"
+                                    class="btn btn-xs btn-danger"
+                                    onclick="return confirm('{{_("Are you sure?")}}')"><i class="fa fa-trash"></i> {{_('Delete')}}</a>
+
+                            </div>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if logged_in %}
+                <div id="new-comment">
+                    <form
+                        name="new-comment-form"
+                        id="new-comment-form"
+                        method="POST"
+                        action="{{url_for('comment_add', seg_id=seg_id, p_id=p._id)}}">
+
+                        <textarea name="comment" class="form-control" id="comment-input" rows="3" required placeholder="{{_('Your comment')}}"></textarea>
+                        <br>
+                        <input type="submit" class="btn btn-primary btn-xs" value="{{_('Submit comment')}}">
+                    </form>
+                </div>
+            {% else %}
+                    <a href="{{url_for('userbase.login')}}"
+                        class="btn btn-default btn-sm"
+                        title="{{_('Please login to comment')}}">{{_('Please login to comment')}}</a>
+            {% endif %}
+        </div>
+    {% endif %} {# /published #}
+{% endblock %}
+
+{% block right_column %}
+    {{ macros.mapoverlay() }}
+    <div class="map" id="proposal-view-map"
+        data-mapid="{{mapbox_map_id}}"
+        data-accesstoken="{{mapbox_access_token}}"
+        data-segment='{{seg|tojson}}'
+        data-route="{{p.route}}"
+        data-mapcomment_url="{{ url_for('proposal_mapcomments', seg_id=seg_id, p_id=p._id) if p }}"
+        >
+    </div>
+{% endblock %}

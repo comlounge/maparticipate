@@ -1,0 +1,138 @@
+{% set container="full" %}
+{% extends "two_columns.html" %}
+
+{% block modal %}
+    <div class="modal fade" id="helpmodal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Schliessen"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{_('This is how you create your proposal')}}</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>{{_('You start with a straight line between the start and end point of the sub section')}}</h3>
+                    <p>
+                        {{_("You can move the start and end point. But don't move it too far so that the connection to the next sub section still works.")}}
+                    </p>
+
+                    <h3>{{_('Edit the route')}}</h3>
+                    <p>
+                        {{_('In order to refine your route, move the gray point in the middle to a new position. After that two new points will appear on the new sub routes. That way you can refine the route point by point.')}}
+                    </p>
+                    <p>
+                        {{_("You can save your route and continue working on it later. As long as you didn't submit it, it won't be visible to anyone.")}}
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">{{_('Understood')}}</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+{% endblock %}
+
+{% block title %}
+    <a href="{{url_for('segment_view', seg_id = seg_id)}}" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{_('Back to overview')}}</a>
+    {% if is_add %}
+        <h2>{{_('Create new proposal')}}</h2>
+    {% else %}
+        <h2>{{_('Edit proposal')}}</h2>
+    {% endif %}
+{% endblock %}
+
+{% block left_column %}
+    {% if p and (user._id|string != p.author or is_add) %}
+        <p class="text-muted">{{_('Original proposal by')}} {{p.author_name}}</p>
+    {% endif %}
+    <div id="save-proposal-form-div">
+
+        <form name="workflow_form"
+              id="workflow_form"
+              action="{{url_for('proposal_workflow', seg_id=seg_id, p_id=p._id)}}"
+              method="POST"
+              role="form"
+              class="">
+            <input type="hidden" name="wf_state" value="published">
+            <button type="submit"
+                    id="publish-proposal-form-button"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    onclick="return confirm('{{_("If you submit a proposal, it will be public. You also cannot edit it further.")}}')"
+                    title="{{_("If you submit a proposal, it will be public. You also cannot edit it further.")}}"
+                    class="btn btn-warning pull-right">
+                <i class="fa fa-star"></i> {{_('Submit proposal')}}
+            </button>
+        </form>
+
+        <form name="save-proposal"
+              id="save-proposal-form"
+              action="{{ url_for('proposal_edit', seg_id=seg_id, p_id=p._id) if p else url_for('proposal_add', seg_id=seg_id)}}"
+              method="POST"
+              role="form"
+              class=""
+              data-create_url="{{ url_for('proposal_add', seg_id=seg_id) }}">
+            <div class="proposal-buttons">
+                <button type="submit"
+                        id="save-proposal-form-button"
+                        class="btn btn-primary"
+                        title="{{_('You can only save it once you changed something')}}.">
+                    {{_('Save')}}
+                </button>
+                <a href="{{url_for('segment_view', seg_id = seg_id)}}"
+                   id="cancel-proposal-form-button"
+                   style="display:none"
+                   class="btn btn-default">
+                   {{_('Cancel')}}
+                </a>
+            </div>
+
+            <div class="form-group">
+                <label for="route_description"><h4>{{_('Description')}}</h4></label><br />
+                <div><small>{{_('Please describe what your proposal is about')}} </small></div>
+                <textarea class="form-control"
+                          name="description"
+                          id="route_description"
+                          rows="3">{{ p.description if p }}</textarea>
+            </div>
+            <input type="hidden" name="original" value="{{ p.author if p }}">
+            <input type="hidden" name="route">
+
+        </form>
+    </div>
+
+    {{ macros.route_details() }}
+{% endblock %}
+
+{% block right_column %}
+    {{ macros.mapoverlay(with_comments=True) }}
+    <div class="map" id="proposal-edit-map"
+        data-mapid="{{mapbox_map_id}}"
+        data-accesstoken="{{mapbox_access_token}}"
+        data-segment='{{seg|tojson}}'
+        data-route="{{ p.route if p }}"
+        data-is_create="{{ is_add }}"
+        data-mapcomment_url="{{ url_for('proposal_mapcomments', seg_id=seg_id, p_id=p._id) if p }}"
+        >
+    </div>
+{% endblock %}
+
+{% block js2 %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+
+            var c = Cookies.get();
+            if (!c.hidemodal) {
+                $('#helpmodal').modal()
+            }
+
+            $('#helpmodal').on('hidden.bs.modal', function (e) {
+                Cookies.set('hidemodal', 'true', { expires: 100 });
+            })
+
+        });
+    </script>
+{% endblock %}

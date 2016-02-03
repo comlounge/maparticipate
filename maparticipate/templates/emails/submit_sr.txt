@@ -1,0 +1,17 @@
+Dear Team,
+
+A new proposal was submitted by {{user.fullname}}. 
+
+You can check out this proposal under the following URL:
+
+{{url}}
+
+The E-Mail of {{user.fullname}} is {{user.email}}
+
+Best regards,
+
+Your tool
+
+--
+footer
+

@@ -1,0 +1,705 @@
+# Translations template for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-02-03 15:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: app.py:80 templates/_m/userbase/login.html:19
+msgid "E-Mail"
+msgstr ""
+
+#: app.py:81
+msgid "Your E-Mail address will never be publically visible"
+msgstr ""
+
+#: app.py:82 templates/_m/userbase/login.html:20
+msgid "Password"
+msgstr ""
+
+#: app.py:82
+msgid "Passwords must match"
+msgstr ""
+
+#: app.py:83
+msgid ""
+"For your own security, please choose a long and secure password you use "
+"nowhere else."
+msgstr ""
+
+#: app.py:84
+msgid "Password confirmation"
+msgstr ""
+
+#: app.py:85
+msgid "Full name"
+msgstr ""
+
+#: app.py:86
+msgid "Your full name is visible to the public under your proposals and comments."
+msgstr ""
+
+#: app.py:151
+msgid "Your Registration is now finished"
+msgstr ""
+
+#: app.py:152
+msgid "Welcome to the collaborative route planning tool"
+msgstr ""
+
+#: app.py:153
+msgid "Reset password"
+msgstr ""
+
+#: app.py:154
+msgid "Your Code to reset your password"
+msgstr ""
+
+#: app.py:157
+msgid "User unknown"
+msgstr ""
+
+#: app.py:158
+msgid "This email address cannot not be found in our user database"
+msgstr ""
+
+#: app.py:159
+msgid "Your password is not correct"
+msgstr ""
+
+#: app.py:160
+msgid "Your user has not yet been activated."
+msgstr ""
+
+#: app.py:161
+msgid "Login failed"
+msgstr ""
+
+#: app.py:162
+#, python-format
+msgid "Herzlich Willkommen, %(fullname)s"
+msgstr ""
+
+#: app.py:163
+msgid "You are now logged in"
+msgstr ""
+
+#: app.py:164
+msgid ""
+"We sent you further instructions via e-mail on how to finish your "
+"registration. Please also check your spam folder."
+msgstr ""
+
+#: app.py:165
+msgid "Your registration was successful."
+msgstr ""
+
+#: app.py:166
+msgid "Your account is now activated."
+msgstr ""
+
+#: app.py:167
+#, python-format
+msgid ""
+"The activation code is not valid. Please try again or <a "
+"href=\"%(url)s\">click here</a> in order to receive a new code."
+msgstr ""
+
+#: app.py:168
+msgid ""
+"We sent you another activation code. Please check out e-mail account "
+"including your spam folder."
+msgstr ""
+
+#: app.py:169
+msgid "Your account is already active, please login"
+msgstr ""
+
+#: app.py:170
+msgid ""
+"A link with instructions on how to reset your password has been sent to "
+"you via e-mail. Please check out e-mail account including your spam "
+"folder."
+msgstr ""
+
+#: app.py:171
+msgid "Your password has been changed."
+msgstr ""
+
+#: app.py:174
+msgid "The user has been updated."
+msgstr ""
+
+#: app.py:175
+msgid "The user has been added."
+msgstr ""
+
+#: app.py:176
+msgid "The user has been deleted."
+msgstr ""
+
+#: app.py:177
+msgid "The user has been activated."
+msgstr ""
+
+#: app.py:178
+msgid "The user has been deactivated."
+msgstr ""
+
+#: app.py:182
+msgid "can manage users"
+msgstr ""
+
+#: app.py:183
+msgid "main administrator"
+msgstr ""
+
+#: handlers/proposal.py:26
+msgid "Route proposal by {name}"
+msgstr ""
+
+#: handlers/proposal.py:170
+msgid "Thank you for your proposal"
+msgstr ""
+
+#: handlers/proposal.py:177
+msgid "New proposal"
+msgstr ""
+
+#: handlers/proposal.py:195
+msgid "Comment deleted successfully"
+msgstr ""
+
+#: handlers/proposal.py:232 handlers/proposal.py:239
+msgid "New comment"
+msgstr ""
+
+#: handlers/proposal.py:241
+msgid "Comment posted successfully"
+msgstr ""
+
+#: handlers/proposal.py:243
+msgid "Please enter a comment"
+msgstr ""
+
+#: templates/index.html:13
+msgid "Collaborative Route Planner"
+msgstr ""
+
+#: templates/index.html:28
+msgid "View proposals"
+msgstr ""
+
+#: templates/index.html:35
+msgid "If you just want to leave a general comment on the map, click here"
+msgstr ""
+
+#: templates/index.html:38
+msgid "Add comment on map"
+msgstr ""
+
+#: templates/index.html:41
+msgid ""
+"In order to comment on proposals or the general map you need a user "
+"account"
+msgstr ""
+
+#: templates/index.html:48
+msgid "Login to comment"
+msgstr ""
+
+#: templates/index.html:49 templates/macros.html:172
+#: templates/segment_view.html:55
+msgid "Login / Register"
+msgstr ""
+
+#: templates/index.html:59
+msgid "Newest proposals"
+msgstr ""
+
+#: templates/index.html:65
+msgid "proposal by"
+msgstr ""
+
+#: templates/index.html:66 templates/index.html:83
+msgid "sub track"
+msgstr ""
+
+#: templates/index.html:68 templates/index.html:85
+#: templates/proposal_view.html:18 templates/proposal_view.html:116
+msgid "on"
+msgstr ""
+
+#: templates/index.html:73
+msgid "View all proposals"
+msgstr ""
+
+#: templates/index.html:76
+msgid "Newest comments"
+msgstr ""
+
+#: templates/index.html:82
+msgid "new comment for the proposal by"
+msgstr ""
+
+#: templates/index.html:96
+msgid "Imprint"
+msgstr ""
+
+#: templates/macros.html:29
+msgid "This field is required"
+msgstr ""
+
+#: templates/macros.html:122
+msgid "Really Delete?"
+msgstr ""
+
+#: templates/macros.html:124
+msgid "Yes"
+msgstr ""
+
+#: templates/macros.html:127
+msgid "No"
+msgstr ""
+
+#: templates/macros.html:132 templates/proposal_view.html:124
+msgid "Delete"
+msgstr ""
+
+#: templates/macros.html:144
+msgid "Center map back to start and end point"
+msgstr ""
+
+#: templates/macros.html:146
+msgid "Center map"
+msgstr ""
+
+#: templates/macros.html:155 templates/macros.html:157
+#: templates/macros.html:186
+msgid "Add comment"
+msgstr ""
+
+#: templates/macros.html:163
+msgid "You can only save once you changed something."
+msgstr ""
+
+#: templates/macros.html:164 templates/proposal_edit.html:82
+msgid "Save"
+msgstr ""
+
+#: templates/macros.html:171
+msgid "Please login to comment or create proposals"
+msgstr ""
+
+#: templates/macros.html:188
+msgid "Comment"
+msgstr ""
+
+#: templates/macros.html:194
+msgid "Add Bridge"
+msgstr ""
+
+#: templates/macros.html:196
+msgid "Bridge"
+msgstr ""
+
+#: templates/macros.html:202
+msgid "Add Tunnel"
+msgstr ""
+
+#: templates/macros.html:204
+msgid "Tunnel"
+msgstr ""
+
+#: templates/macros.html:226
+msgid "Key figures"
+msgstr ""
+
+#: templates/macros.html:229
+msgid "linear distance"
+msgstr ""
+
+#: templates/macros.html:237
+msgid "current distance"
+msgstr ""
+
+#: templates/macros.html:245
+msgid "Detour factor"
+msgstr ""
+
+#: templates/macros.html:261
+msgid "Elevation profile"
+msgstr ""
+
+#: templates/macros.html:264
+msgid ""
+"If you move your mouse pointer on the evelation profile the corresponding"
+" part of the route will be highlighted."
+msgstr ""
+
+#: templates/macros.html:269
+msgid "Slope"
+msgstr ""
+
+#: templates/macros.html:277
+msgid ""
+"Beware: a precise computation is not possible, the elevation profile only"
+" serves as a rough estimate."
+msgstr ""
+
+#: templates/macros.html:293
+msgid "Proposal by"
+msgstr ""
+
+#: templates/master.html:50 templates/proposal_view.html:29
+#: templates/proposal_view.html:124
+msgid "Are you sure?"
+msgstr ""
+
+#: templates/master.html:51
+msgid "Drag here to change the route"
+msgstr ""
+
+#: templates/master.html:52
+msgid "Edit Route"
+msgstr ""
+
+#: templates/master.html:73
+msgid "route proposals"
+msgstr ""
+
+#: templates/master.html:74
+msgid "general comments"
+msgstr ""
+
+#: templates/master.html:76
+msgid "Help"
+msgstr ""
+
+#: templates/master.html:92
+msgid "Login"
+msgstr ""
+
+#: templates/master.html:93 templates/_m/userbase/login.html:37
+#: templates/_m/userbase/registration.html:23
+msgid "Register"
+msgstr ""
+
+#: templates/master.html:98
+msgid "My proposals"
+msgstr ""
+
+#: templates/master.html:99
+msgid "Change Password"
+msgstr ""
+
+#: templates/master.html:100
+msgid "Logout"
+msgstr ""
+
+#: templates/proposal_edit.html:10
+msgid "This is how you create your proposal"
+msgstr ""
+
+#: templates/proposal_edit.html:13
+msgid ""
+"You start with a straight line between the start and end point of the sub"
+" section"
+msgstr ""
+
+#: templates/proposal_edit.html:15
+msgid ""
+"You can move the start and end point. But don't move it too far so that "
+"the connection to the next sub section still works."
+msgstr ""
+
+#: templates/proposal_edit.html:18
+msgid "Edit the route"
+msgstr ""
+
+#: templates/proposal_edit.html:20
+msgid ""
+"In order to refine your route, move the gray point in the middle to a new"
+" position. After that two new points will appear on the new sub routes. "
+"That way you can refine the route point by point."
+msgstr ""
+
+#: templates/proposal_edit.html:23
+msgid ""
+"You can save your route and continue working on it later. As long as you "
+"didn't submit it, it won't be visible to anyone."
+msgstr ""
+
+#: templates/proposal_edit.html:28
+msgid "Understood"
+msgstr ""
+
+#: templates/proposal_edit.html:38
+msgid "Back to overview"
+msgstr ""
+
+#: templates/proposal_edit.html:40
+msgid "Create new proposal"
+msgstr ""
+
+#: templates/proposal_edit.html:42 templates/proposal_view.html:48
+msgid "Edit proposal"
+msgstr ""
+
+#: templates/proposal_edit.html:48
+msgid "Original proposal by"
+msgstr ""
+
+#: templates/proposal_edit.html:63 templates/proposal_edit.html:64
+msgid ""
+"If you submit a proposal, it will be public. You also cannot edit it "
+"further."
+msgstr ""
+
+#: templates/proposal_edit.html:66
+msgid "Submit proposal"
+msgstr ""
+
+#: templates/proposal_edit.html:81
+msgid "You can only save it once you changed something"
+msgstr ""
+
+#: templates/proposal_edit.html:88
+msgid "Cancel"
+msgstr ""
+
+#: templates/proposal_edit.html:93
+msgid "Description"
+msgstr ""
+
+#: templates/proposal_edit.html:94
+msgid "Please describe what your proposal is about"
+msgstr ""
+
+#: templates/proposal_view.html:5 templates/submit_success.html:14
+msgid "back to overview"
+msgstr ""
+
+#: templates/proposal_view.html:6 templates/segment_view.html:6
+msgid "Sub section"
+msgstr ""
+
+#: templates/proposal_view.html:9
+msgid "Draft"
+msgstr ""
+
+#: templates/proposal_view.html:12
+msgid "published"
+msgstr ""
+
+#: templates/proposal_view.html:17
+msgid "by"
+msgstr ""
+
+#: templates/proposal_view.html:30
+msgid "Delete proposal"
+msgstr ""
+
+#: templates/proposal_view.html:41
+msgid ""
+"You can still edit your proposal as long as you haven't submitted it. "
+"After that it's public and cannot be changed anymore."
+msgstr ""
+
+#: templates/proposal_view.html:57
+msgid ""
+"Once your proposal is finished you can submit it for review. It will then"
+" be publically visible and can be commented on. "
+msgstr ""
+
+#: templates/proposal_view.html:60
+msgid "Please note that once submitted you cannot change your proposal anymore."
+msgstr ""
+
+#: templates/proposal_view.html:72
+msgid ""
+"Once you submitted your proposal it will be publically visible and cannot"
+" be changed anymore."
+msgstr ""
+
+#: templates/proposal_view.html:74
+msgid "Submit proposal for review"
+msgstr ""
+
+#: templates/proposal_view.html:82
+msgid "new proposal"
+msgstr ""
+
+#: templates/proposal_view.html:83
+msgid "Use proposal as base for your own proposal"
+msgstr ""
+
+#: templates/proposal_view.html:94
+msgid "Comments"
+msgstr ""
+
+#: templates/proposal_view.html:97
+#, python-format
+msgid "%(num)d comment"
+msgid_plural "%(num)d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/proposal_view.html:108
+msgid "Author"
+msgstr ""
+
+#: templates/proposal_view.html:111
+msgid "Moderator"
+msgstr ""
+
+#: templates/proposal_view.html:141
+msgid "Your comment"
+msgstr ""
+
+#: templates/proposal_view.html:143
+msgid "Submit comment"
+msgstr ""
+
+#: templates/proposal_view.html:149
+msgid "Please login to comment"
+msgstr ""
+
+#: templates/segment_overview.html:9
+msgid "Select subsection"
+msgstr ""
+
+#: templates/segment_overview.html:11
+msgid "In order to manage the full route better you can edit them in parts"
+msgstr ""
+
+#: templates/segment_overview.html:12
+msgid "You can view and comment on proposed routes"
+msgstr ""
+
+#: templates/segment_overview.html:27
+msgid "Please select a subsection"
+msgstr ""
+
+#: templates/segment_overview.html:39
+msgid "Number of proposals"
+msgstr ""
+
+#: templates/segment_view.html:5
+msgid "All sub sections"
+msgstr ""
+
+#: templates/segment_view.html:12
+msgid "No proposals have been created yet. Your's can be the first!"
+msgstr ""
+
+#: templates/segment_view.html:16
+msgid "My Proposals"
+msgstr ""
+
+#: templates/segment_view.html:23
+msgid "Submitted Proposals"
+msgstr ""
+
+#: templates/segment_view.html:32
+msgid "No proposals have yet been submitted."
+msgstr ""
+
+#: templates/segment_view.html:41
+msgid "add own proposal"
+msgstr ""
+
+#: templates/segment_view.html:42
+msgid "Create Proposal"
+msgstr ""
+
+#: templates/segment_view.html:45
+msgid "You reached the number of proposals you can create per sub section"
+msgstr ""
+
+#: templates/segment_view.html:49
+msgid "Please login to create your proposal"
+msgstr ""
+
+#: templates/submit_success.html:8
+msgid "Thank you for your participation!"
+msgstr ""
+
+#: templates/_m/userbase/login.html:14
+msgid "Please login!"
+msgstr ""
+
+#: templates/_m/userbase/login.html:16
+msgid "You have to login in order to create a proposal or comment on one"
+msgstr ""
+
+#: templates/_m/userbase/login.html:30
+msgid "remember me"
+msgstr ""
+
+#: templates/_m/userbase/login.html:34
+msgid "forgot password?"
+msgstr ""
+
+#: templates/_m/userbase/pw_new.html:9
+msgid "Set new password"
+msgstr ""
+
+#: templates/_m/userbase/pw_new.html:11
+msgid "Use the form below to set a new password for your account."
+msgstr ""
+
+#: templates/_m/userbase/pw_new.html:19
+msgid "Save new password"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:7
+msgid "Please register"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:9
+msgid "This is how you do it"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:11
+msgid "Fill out this form"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:12
+msgid "We will send you an activation code via email"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:13
+msgid ""
+"After clicking on that code your account will be activated and you can "
+"start proposing"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:35
+msgid "You didn't receive your activation code?"
+msgstr ""
+
+#: templates/_m/userbase/registration.html:36
+msgid "Send new activation code"
+msgstr ""
+
+#: templates/_m/userbase/send_pw_code.html:9
+msgid "Set a new password"
+msgstr ""
+
+#: templates/_m/userbase/send_pw_code.html:12
+msgid "Request new password"
+msgstr ""
+

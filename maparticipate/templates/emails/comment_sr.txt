@@ -1,0 +1,22 @@
+Dear Team,
+
+{{user.fullname}} has commented on the following proposal: 
+
+{{url}}
+
+Comment:
+========
+
+{{comment|striptags}}
+
+
+------
+
+best regards,
+
+your proposal tool
+
+
+
+--
+Footer

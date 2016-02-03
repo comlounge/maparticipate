@@ -1,0 +1,319 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset and dependencies
+@import "normalize.less";
+@import "print.less";
+@import "glyphicons.less";
+
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+@import "code.less";
+@import "grid.less";
+@import "tables.less";
+@import "forms.less";
+@import "buttons.less";
+
+// Components
+@import "component-animations.less";
+@import "dropdowns.less";
+@import "button-groups.less";
+@import "input-groups.less";
+@import "navs.less";
+@import "navbar.less";
+@import "breadcrumbs.less";
+@import "pagination.less";
+@import "pager.less";
+@import "labels.less";
+@import "badges.less";
+@import "jumbotron.less";
+@import "thumbnails.less";
+@import "alerts.less";
+@import "progress-bars.less";
+@import "media.less";
+@import "list-group.less";
+@import "panels.less";
+@import "responsive-embed.less";
+@import "wells.less";
+@import "close.less";
+
+// Components w/ JavaScript
+@import "modals.less";
+@import "tooltip.less";
+@import "popovers.less";
+@import "carousel.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
+
+html, body, .container-fluid, .main-row {
+    height: 100%;
+}
+
+
+//
+// homepage
+//
+
+#activity {
+    border-top: 1px solid #e0e0e0;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#latest-proposals, #latest-comments {
+    .list-unstyled;
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+    li {
+        padding-bottom: 13px;
+        padding-top: 5px;
+        h4 {
+            margin-bottom: 2px;
+        }
+        span {
+            display: block;
+            margin-top: 2px;
+            font-weight: normal;
+        }
+        .byline {
+            margin: 0;
+            line-height: 1;
+        }
+    }
+    li:hover {
+        background: #f8f8f8;
+        a { color: #000; }
+    }
+}
+
+.hero-description {
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+.checkbox {
+    display: inline; // mostly for login form
+}
+
+.navlogo {
+    height: 18px;
+    display: inline !important;
+}
+.description {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+.intro-box {
+    margin-top: 100px;
+}
+
+.sidebar{
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
+#map-comment-input {
+    margin-bottom: 5px;
+    overflow: auto;
+}
+
+.modal-body {
+
+    p {
+        margin-bottom: 30px;
+        font-size: 17px;
+        line-height: 1.3;
+    }
+}
+
+.leaflet-div-icon {
+    width: 11px !important;
+    height: 11px !important;
+    margin-top: -5px;
+    margin-left: -5px;
+    background: #fff;
+    border: 1px solid #333;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+  }
+}
+
+
+.intro {
+	width: 600px;
+	font-size: 16px;
+	margin: 20px auto;
+}
+
+.help-strecke {
+    font-size: 120%;
+}
+
+.btn-start {
+	text-transform: uppercase;
+}
+
+#map-container { height: 700px; width: 100%; overflow: hidden; border: 1px solid #e0e0e9;}
+#overview-map { width: 100%; height: 600px; }
+
+
+.login-container {
+    width: 500px;
+    background: #f8f8f8;
+    border: 1px solid #d8d8d8;
+    margin: 50px auto 0 auto;
+    .content {
+        padding: 16px 28px 23px;
+    }
+
+    form {
+        margin: 0 0 18px;
+        #field-username, #field-password {
+            label {
+                display: none;
+            }
+        }
+        input[type=text], input[type=password] {
+            width: 320px;
+            font-size: 130%;
+            padding: 10px 9px;
+            .box-shadow(inset 0 2px 2px rgba(0,0,0,.1)); // Redeclare so transitions work
+            margin: 10px 0;
+        }
+        #field-remember {
+            padding-top: 5px;
+        }
+    }
+    .description {
+    	margin-bottom: 20px;
+    	font-size: 16px;
+    }
+
+    .btn-register {
+    	.btn-lg;
+    }
+
+    .btn-signin {
+        .btn();
+        .btn-lg();
+        .btn-primary();
+        width: 130px;
+    }
+}
+
+ul.proposal-list {
+    .list-unstyled;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 50px;
+    .proposal-description {
+        display: block;
+        color: #444;
+        font-size: 12px;
+    }
+    li {
+        padding: 20px 0px;
+        margin: 0;
+        border-bottom: 1px solid #e0e0e8;
+    }
+    li:hover {
+        background: #f8f8f9;
+    }
+}
+
+.proposal-buttons {
+    display: block;
+    height: 50px;
+}
+
+//
+// map overlay
+//
+.overlay {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 35px;
+	z-index: 10;
+	pointer-events: none;
+}
+
+.overlay .btn, .overlay a {
+	pointer-events: visible;
+}
+
+#mapmenu {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    z-index: 10;
+    pointer-events: none;
+    .btn, a {
+        pointer-events: visible;
+    }
+}
+
+
+//
+// proposal view
+//
+#proposal-title {
+    margin-bottom: 0;
+}
+.byline {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #505050;
+}
+.route-details {
+    color: #335;
+    font-size: 105%;
+}
+
+//
+// comments
+//
+#comment-box {
+    #comment-list {
+    }
+    .comment-list {
+        .list-unstyled;
+        li.comment {
+            margin-bottom: 20px;
+        }
+    }
+    .comment-byline {
+        color: #505050;
+        font-size: 11px;
+    }
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    overflow: auto;
+}
+
+textarea#map-comment-input {
+   resize: none;
+   width: 250px;
+}
+
+
+//
+// editing icon tooltip
+//
+.leaflet-marker-pane .tooltip-inner {
+	width: 100px;
+}

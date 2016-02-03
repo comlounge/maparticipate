@@ -1,0 +1,41 @@
+{% extends M.userbase.config.master_template %}
+{% import "macros.html" as formmacros with context %}                                                                                                           
+{% block content %}
+    <div id="main-content" class="row">
+        <div class="col-lg-9" id="content-area">
+            <div class="form" id="registration-form">
+                <h2>{{_('Please register')}}</h2>
+                <div class="alert alert-info alert-dismissable">
+                    {{_('This is how you do it')}}:
+                    <ol>
+                        <li>{{_('Fill out this form')}}</li>
+                        <li>{{_('We will send you an activation code via email')}}</li>
+                        <li>{{_('After clicking on that code your account will be activated and you can start proposing')}}</li>
+                    </ol>
+                </div>
+                <form class="parsley-validate" method="POST" action="{{url}}" role="form">
+                    {{ formmacros.form_field(form.email, required = True, type="email", placeholder = "name@example.org")}}
+                    {{ formmacros.form_field(form.password, required = True, minlength = 5)}}
+                    {{ formmacros.form_field(form.password2, required = True, **{'data-parsley-equalto' : '#password' })}}
+                    {{ formmacros.form_field(form.fullname, required = True, placeholder = "Peter Example")}}
+                    <fieldset class="form-actions">
+                        <div class="input">
+                            <input type="submit" class="btn btn-primary btn-large" value="{{_('Register')}}">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="description">
+                * Dieses Feld wird benötigt.
+            </div>
+        </div>
+        <div class="col-lg-3">
+            {% if use_double_opt_in %}
+                <div class="widget">
+                    <h4>{{_("You didn't receive your activation code?")}}</h4>
+                    <a class="btn btn-info" href="{{url_for('.activation_code')}}">{{_('Send new activation code')}}</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
