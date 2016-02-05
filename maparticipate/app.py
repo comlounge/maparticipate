@@ -148,10 +148,10 @@ class CollaborativeMapApp(Application):
                 'registration_success'  : {'endpoint' : 'userbase.login'},
             },
             subjects                    = AttributeMapper({
-                'registration'          : T(u'Your Registration is now finished'),
-                'welcome'               : T(u'Welcome to the collaborative route planning tool'),
-                'password'              : T(u'Reset password'),
-                'pw_code'               : T(u'Your Code to reset your password'),
+                'registration'          : u'Your Registration is now finished',
+                'welcome'               : u'Welcome to the collaborative route planning tool',
+                'password'              : u'Reset password',
+                'pw_code'               : u'Your Code to reset your password',
             }),
             messages                    = AttributeMapper({
                 'user_unknown'          : T('User unknown'),
